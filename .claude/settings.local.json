@@ -10,7 +10,10 @@
       "Bash(powershell.exe -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json -PathsOnly)",
       "Bash(powershell.exe -File \".specify/scripts/powershell/setup-plan.ps1\" -Json)",
       "Bash(powershell.exe -File \".specify/scripts/powershell/update-agent-context.ps1\" -Help)",
-      "Bash(powershell.exe -File \".specify/extensions/git/scripts/powershell/auto-commit.ps1\" after_plan)"
+      "Bash(powershell.exe -File \".specify/extensions/git/scripts/powershell/auto-commit.ps1\" after_plan)",
+      "Bash(powershell.exe -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json)",
+      "Bash(npm run *)",
+      "Bash(powershell.exe -File \".specify/extensions/git/scripts/powershell/auto-commit.ps1\" after_implement)"
     ]
   }
 }

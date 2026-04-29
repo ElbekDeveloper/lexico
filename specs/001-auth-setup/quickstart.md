@@ -101,3 +101,21 @@ is needed.
 
 XSRF tokens are automatically read from the `XSRF-TOKEN` cookie and forwarded as
 the `X-XSRF-TOKEN` request header on state-changing requests.
+
+---
+
+## Manual Verification: SC-002 & SC-004
+
+### SC-002 — Route resolution < 3 s on localhost
+
+Run `npm start`, open Chrome DevTools → **Network** tab, navigate to `/login` then
+`/chat`. Confirm the **Load** timer in the waterfall is under 3 s for each route.
+Lazy chunks (`login-component`, `chat-component`) should appear as separate requests.
+
+### SC-004 — HTTP credentials auto-attached (< 1 min)
+
+1. Add a temporary button to any component that calls
+   `inject(HttpClient).get('http://localhost:3000/api/test').subscribe()`.
+2. Open DevTools → **Network** tab, trigger the request.
+3. Confirm the request shows `credentials: include` in the **Request Headers**.
+4. Remove the temporary button after verification.

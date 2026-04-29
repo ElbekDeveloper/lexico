@@ -131,7 +131,8 @@ unblocks the entire visual layer.
 - **AppConfig**: The root application configuration object (`app.config.ts`) that
   provides router, HTTP client, and interceptors using the functional provider API.
 - **AuthInterceptor**: A functional HTTP interceptor (`auth.interceptor.ts`) that
-  attaches credentials to every outgoing request.
+  attaches `withCredentials: true` only to outgoing requests whose URL begins with
+  `environment.apiUrl`; all other requests pass through unmodified.
 - **DesignTokens**: The SCSS token file (`src/styles/tokens.scss`) defining the
   visual design system primitives.
 - **PlaceholderRoute**: A minimal standalone Angular component used as a route target
