@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash .specify/extensions/git/scripts/bash/initialize-repo.sh)",
+      "Bash(powershell.exe -NonInteractive -File \".specify/extensions/git/scripts/powershell/initialize-repo.ps1\")",
+      "Bash(echo \"exit:$?\")",
+      "Bash(bash .specify/extensions/git/scripts/bash/create-new-feature.sh --json --short-name \"auth-setup\" \"001-auth-setup\")",
+      "Bash(bash .specify/extensions/git/scripts/bash/auto-commit.sh after_specify)",
+      "Bash(powershell.exe -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json -RequireTasks -IncludeTasks)",
+      "Bash(powershell.exe -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json -PathsOnly)",
+      "Bash(powershell.exe -File \".specify/scripts/powershell/setup-plan.ps1\" -Json)",
+      "Bash(powershell.exe -File \".specify/scripts/powershell/update-agent-context.ps1\" -Help)",
+      "Bash(powershell.exe -File \".specify/extensions/git/scripts/powershell/auto-commit.ps1\" after_plan)",
+      "Bash(powershell.exe -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json)",
+      "Bash(npm run *)",
+      "Bash(powershell.exe -File \".specify/extensions/git/scripts/powershell/auto-commit.ps1\" after_implement)"
+    ]
+  }
+}
