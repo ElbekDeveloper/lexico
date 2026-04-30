@@ -1,0 +1,40 @@
+<div class="text-input">
+  <label class="text-input__label" [for]="inputId">{{ label() }}</label>
+
+  <div class="text-input__field-wrapper">
+    <input
+      class="text-input__input"
+      [id]="inputId"
+      [type]="effectiveType()"
+      [value]="value()"
+      [placeholder]="placeholder()"
+      [attr.aria-invalid]="hasError() ? 'true' : null"
+      [attr.aria-describedby]="hasError() ? inputId + '-error' : null"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
+    />
+
+    @if (type() === 'password') {
+      <button
+        class="text-input__toggle"
+        type="button"
+        [attr.aria-label]="showPassword() ? 'Hide password' : 'Show password'"
+        (click)="togglePasswordVisibility()"
+      >
+        @if (showPassword()) {
+          <span aria-hidden="true">🙈</span>
+        } @else {
+          <span aria-hidden="true">👁</span>
+        }
+      </button>
+    }
+  </div>
+
+  @if (hasError()) {
+    <span
+      class="text-input__error"
+      [id]="inputId + '-error'"
+      role="alert"
+    >{{ errorMessage() }}</span>
+  }
+</div>
