@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+  <h1 class="login-heading">Sign In</h1>
+
+  <!-- Email Field -->
+  <div class="form-group">
+    <app-text-input
+      formControlName="email"
+      label="Email address"
+      type="email"
+      placeholder="Enter your email"
+      [errorMessage]="email?.invalid && email?.touched ? 'Email is required' : ''"
+    ></app-text-input>
+  </div>
+
+  <!-- Password Field -->
+  <div class="form-group">
+    <app-text-input
+      formControlName="password"
+      label="Password"
+      type="password"
+      placeholder="Enter your password"
+      [errorMessage]="password?.invalid && password?.touched ? 'Password is required' : ''"
+    ></app-text-input>
+  </div>
+
+  <!-- Sign In Button -->
+  <div class="form-actions">
+    <app-button
+      type="submit"
+      [loading]="isSubmitting()"
+      [disabled]="form.invalid || isSubmitting()"
+      class="sign-in-button"
+    >
+      Sign In
+    </app-button>
+  </div>
+</form>
