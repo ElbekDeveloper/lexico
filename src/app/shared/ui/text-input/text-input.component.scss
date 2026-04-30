@@ -1,0 +1,69 @@
+@use 'tokens';
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$spacing-1;
+
+  &__label {
+    font-family: tokens.$font-family-base;
+    font-size: tokens.$font-size-md;
+    font-weight: tokens.$font-weight-medium;
+    color: tokens.$color-text-primary;
+  }
+
+  &__field-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    padding: tokens.$spacing-2 tokens.$spacing-3;
+    background: tokens.$color-bg-surface;
+    border: 1px solid tokens.$color-border;
+    border-radius: tokens.$border-radius-md;
+    font-family: tokens.$font-family-base;
+    font-size: tokens.$font-size-md;
+    color: tokens.$color-text-primary;
+    outline: none;
+    transition: border-color 0.15s ease;
+
+    &::placeholder {
+      color: tokens.$color-text-secondary;
+    }
+
+    &:focus-visible {
+      border-color: tokens.$color-accent;
+      outline: 2px solid tokens.$color-accent;
+      outline-offset: 2px;
+    }
+
+    &[aria-invalid='true'] {
+      border-color: tokens.$color-error;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    right: tokens.$spacing-2;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: tokens.$spacing-1;
+    color: tokens.$color-text-secondary;
+    line-height: 1;
+
+    &:focus-visible {
+      outline: 2px solid tokens.$color-accent;
+      border-radius: tokens.$border-radius-sm;
+    }
+  }
+
+  &__error {
+    font-family: tokens.$font-family-base;
+    font-size: tokens.$font-size-sm;
+    color: tokens.$color-error;
+  }
+}

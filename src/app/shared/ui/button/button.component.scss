@@ -1,0 +1,54 @@
+@use 'tokens';
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$spacing-2;
+  padding: tokens.$spacing-3 tokens.$spacing-4;
+  border: 1px solid transparent;
+  border-radius: tokens.$border-radius-md;
+  font-family: tokens.$font-family-base;
+  font-size: tokens.$font-size-md;
+  font-weight: tokens.$font-weight-medium;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    opacity 0.15s ease,
+    background-color 0.15s ease;
+
+  &:focus-visible {
+    outline: 3px solid tokens.$color-accent;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px tokens.$color-bg-elevated;
+  }
+
+  &--primary {
+    background: tokens.$color-accent;
+    color: tokens.$color-text-primary;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+  }
+
+  &--secondary {
+    background: tokens.$color-bg-surface;
+    color: tokens.$color-text-primary;
+    border-color: tokens.$color-border;
+
+    &:hover:not(:disabled) {
+      background: tokens.$color-bg-elevated;
+    }
+  }
+
+  &--disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--loading {
+    cursor: wait;
+  }
+}

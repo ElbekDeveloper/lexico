@@ -1,0 +1,36 @@
+@use 'tokens';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner__ring {
+  border-radius: 50%;
+  border: 2px solid tokens.$color-bg-elevated;
+  border-top-color: tokens.$color-accent;
+  animation: lexico-spin 0.75s linear infinite;
+
+  &--sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--md {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@keyframes lexico-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner__ring {
+    animation: none;
+  }
+}
